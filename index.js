@@ -1,6 +1,15 @@
+const display = document.getElementById("display")
+const numBtns = document.querySelectorAll(".num-btn")
 let firstNum = null
 let secondNum = null
 let operator = null
+let displayText = ''
+
+numBtns.forEach(numBtn => {
+    numBtn.addEventListener("click", function() {
+        console.log(typeof numBtn.textContent)
+    })
+})
 
 function add(a, b) {
     return a + b
