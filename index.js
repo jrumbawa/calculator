@@ -1,5 +1,6 @@
 const display = document.getElementById("display")
 const numBtns = document.querySelectorAll(".num-btn")
+const operandBtns = document.querySelectorAll(".operand-btn")
 let firstNum = null
 let secondNum = null
 let operator = null
@@ -7,9 +8,17 @@ let displayText = ''
 
 numBtns.forEach(numBtn => {
     numBtn.addEventListener("click", function() {
-        console.log(typeof numBtn.textContent)
+        console.log(numBtn.textContent)
     })
 })
+
+operandBtns.forEach(operandBtn => {
+    operandBtn.addEventListener("click", function() {
+        console.log(operandBtn.textContent)
+    })
+})
+
+operandBtns
 
 function add(a, b) {
     return a + b
