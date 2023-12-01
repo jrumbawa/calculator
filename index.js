@@ -18,8 +18,6 @@ operandBtns.forEach(operandBtn => {
     })
 })
 
-operandBtns
-
 function add(a, b) {
     return a + b
 }
