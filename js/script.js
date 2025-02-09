@@ -1,10 +1,12 @@
 const numBtns = document.querySelectorAll(".num-btn");
 const opBtns = document.querySelectorAll(".operator-btn");
+const eqlBtn = document.querySelector(".eql-btn");
 const clrBtn = document.querySelector(".clr-btn");
 const calcDisplay = document.querySelector(".calc-display");
-let numbOne = null;
-let numbTwo = null;
+let numOne = null;
+let numTwo = null;
 let operator = null;
+let result = null;
 
 function add(a, b) {
   return a + b;
@@ -35,6 +37,14 @@ function operate(numOne, numTwo, operator) {
   }
 }
 
+function setNumbers() {
+  if (numOne === null) {
+    numOne = Number(calcDisplay.textContent);
+  } else if (numOne !== null && operator !== null) {
+    numTwo = Number(calcDisplay.textContent);
+  }
+}
+
 numBtns.forEach((btn) => {
   btn.addEventListener("click", function (e) {
     const value = e.target.textContent;
@@ -48,11 +58,20 @@ numBtns.forEach((btn) => {
 
 opBtns.forEach((btn) => {
   btn.addEventListener("click", function (e) {
+    setNumbers();
+    calcDisplay.textContent = "0";
     const value = e.target.textContent;
-    console.log(value);
+    operator = value;
   });
 });
 
 clrBtn.addEventListener("click", function () {
   console.log("clear");
+});
+
+eqlBtn.addEventListener("click", function () {
+  setNumbers();
+  result = operate(numOne, numTwo, operator);
+  calcDisplay.textContent = result;
+  numOne = result;
 });
