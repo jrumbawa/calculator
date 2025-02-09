@@ -66,12 +66,17 @@ opBtns.forEach((btn) => {
 });
 
 clrBtn.addEventListener("click", function () {
-  console.log("clear");
+  numOne = numTwo = operator = null;
+  calcDisplay.textContent = "0";
 });
 
 eqlBtn.addEventListener("click", function () {
   setNumbers();
-  result = operate(numOne, numTwo, operator);
-  calcDisplay.textContent = result;
-  numOne = result;
+  if (numOne !== null && numTwo !== null && operator !== null) {
+    result = operate(numOne, numTwo, operator);
+    calcDisplay.textContent = result;
+    numOne = result;
+    numTwo = null;
+    operator = null;
+  }
 });
