@@ -1,6 +1,7 @@
 const numBtns = document.querySelectorAll(".num-btn");
 const opBtns = document.querySelectorAll(".operator-btn");
 const clrBtn = document.querySelector(".clr-btn");
+const calcDisplay = document.querySelector(".calc-display");
 let numbOne = null;
 let numbTwo = null;
 let operator = null;
@@ -37,7 +38,11 @@ function operate(numOne, numTwo, operator) {
 numBtns.forEach((btn) => {
   btn.addEventListener("click", function (e) {
     const value = e.target.textContent;
-    console.log(value);
+    if (calcDisplay.textContent === "0") {
+      calcDisplay.textContent = value;
+    } else {
+      calcDisplay.textContent += value;
+    }
   });
 });
 
